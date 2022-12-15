@@ -1,0 +1,11 @@
+<h1>This is my blog</h1>
+
+{% for object in objects %}
+
+<h2>{{ object.title }}</h2>
+<h3>{{ object.date }}</h3>
+{{ object.description }}
+
+{% endfor %}
+<br>
+<a href="{% url 'home' %}"> Back </a>

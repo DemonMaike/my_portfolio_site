@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import *
 
-# Create your views here.
+def blog(request):
+    objects = Blog.objects.all()
+    context = {
+        "objects": objects,
+    }
+    return render(request, "blog/blog.html", context)

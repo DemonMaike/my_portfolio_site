@@ -1,3 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.http import HttpResponse
+from .models import Project 
+def home(request):
+    projects = Project.objects.all()
+    
+    return render(request, 'pesron_portfolio/home.html', {'projects': projects})
