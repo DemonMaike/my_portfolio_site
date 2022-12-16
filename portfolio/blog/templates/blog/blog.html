@@ -1,10 +1,12 @@
 <h1>This is my blog</h1>
 
+<h2>All {{ objects.count }} blog{{objects.count|pluralize}}</h2>
+
 {% for object in objects %}
 
-<h2>{{ object.title }}</h2>
-<h3>{{ object.date }}</h3>
-{{ object.description }}
+<a href="{% url 'blog:detail' object.id %}"><h2>{{ object.title}}</h2></a>
+<h3>{{ object.date|date:'M d Y' }}</h3>
+{{ object.description|striptags|truncatechars:100 }}
 
 {% endfor %}
 <br>
